@@ -1,0 +1,86 @@
+{
+  "system": {
+    "role": "system",
+    "content": "You are a top 1% software engineer. Your goal is to implement a web application based on the following detailed feature map. Create clean, modular code with clear comments."
+  },
+  "request": {
+    "role": "user",
+    "content": {
+      "appName": "Prompt Generation & Model Comparison Tool",
+      "description": "A web app that helps users create, refine, and compare AI prompts across multiple models.",
+      "features": {
+        "navigationModes": [
+          { "key": "generate", "name": "Generate", "description": "Primary workspace for creating prompts." },
+          { "key": "compare", "name": "Compare Models", "description": "Run the same prompt through multiple models side-by-side." }
+        ],
+        "promptInputRefinement": {
+          "promptInputBox": true,
+          "promptModeSelector": ["text", "code", "structuredData", "creativeWriting", "marketingCopy"],
+          "promptStyleSelector": ["primer", "reasoningSummary", "marketingHook", "socraticQA"],
+          "generatePromptButton": true,
+          "starterPromptChips": [
+            "Draft a pitch deck for {product} targeting {audience}",
+            "Create a business model canvas for {company}",
+            "Identify potential investors for {sector} in {region}",
+            "Outline a lean startup plan for {idea}",
+            "Analyze the market for {product} in {region}",
+            "Generate company name ideas for {theme}",
+            "Write a mission statement that {goal}",
+            "Brainstorm revenue streams for {business}",
+            "Draft an elevator pitch for {idea}"
+          ]
+        },
+        "modelComparisonOutput": {
+          "compareModelsExecution": true,
+          "modelSelector": [
+            { "provider": "openai", "label": "GPT-5", "modelId": "gpt-5" },
+            { "provider": "anthropic", "label": "Claude", "modelId": "claude-latest" },
+            { "provider": "google", "label": "Gemini", "modelId": "gemini-1.5-pro" }
+          ],
+          "outputDisplay": ["splitColumns", "tabs"],
+          "modelPerformanceMetrics": ["latencyMs", "tokensIn", "tokensOut", "costUsd", "reasoningDepthNote"]
+        },
+        "promptLibraryHistory": {
+          "savedPrompts": true,
+          "searchTagging": true,
+          "versionHistory": true
+        },
+        "customizationTools": {
+          "customTemplates": true,
+          "toneStyleControls": ["formal", "casual", "persuasive"],
+          "multiStepPrompting": true,
+          "exportOptions": ["copy", "text", "markdown", "json"],
+          "apiIntegrationHooks": ["notion", "airtable", "make"]
+        },
+        "brandingUx": {
+          "personalizedGreeting": true,
+          "brandLogo": "orange-cloud-explosion",
+          "colorPalette": { "primary": "orange", "secondary": "tan" },
+          "responsiveLayout": true
+        },
+        "premiumFeatures": {
+          "promptOptimizationAi": { "flag": "pro.promptOptimization", "default": false },
+          "modelCostAndTokenTracking": { "flag": "pro.costTracking", "default": true },
+          "teamCollaborationMode": { "flag": "pro.team", "default": false },
+          "promptScoring": { "flag": "pro.scoring", "default": false },
+          "presetBundlesByIndustry": { "flag": "pro.presets", "default": false }
+        }
+      },
+      "requirements": [
+        "Clean modular architecture",
+        "Commented code",
+        "Responsive frontend",
+        "Backend for model integration and prompt history",
+        "Switch between AI models"
+      ],
+      "nonFunctional": {
+        "auth": ["emailLink", "oauth"],
+        "privacy": { "storeRawInputs": true, "storeModelResponses": true, "storeReasoningTraces": false },
+        "rateLimits": { "freePerDay": 20, "proPerDay": 200 },
+        "observability": ["requestId", "structuredLogs", "metrics", "traceIds"],
+        "errorHandling": ["gracefulDegradation", "partialResults", "retryWithBackoff"],
+        "limits": { "maxPromptChars": 8000, "maxParallelModels": 4 }
+      }
+    }
+  }
+}
